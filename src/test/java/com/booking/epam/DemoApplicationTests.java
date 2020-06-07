@@ -1,4 +1,4 @@
-package com.example.epam;
+package com.booking.epam;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

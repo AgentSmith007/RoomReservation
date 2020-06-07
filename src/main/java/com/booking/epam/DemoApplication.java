@@ -1,4 +1,4 @@
-package com.example.epam;
+package com.booking.epam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

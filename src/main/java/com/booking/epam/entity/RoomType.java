@@ -1,4 +1,4 @@
-package com.example.epam.entity;
+package com.booking.epam.entity;
 
 public enum RoomType {
     ECONOMY("The cheapest option"),
