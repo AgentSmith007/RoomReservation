@@ -3,7 +3,11 @@ package com.booking.epam.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -20,18 +24,22 @@ public class Room extends BaseEntity {
     @Column(name = "reserved")
     private boolean reserved;
 
+    @Column(name = "start_reserved_date")
+    private long startReservedDate;
+
+    @Column(name = "end_reserved_date")
+    private long endReservedDate;
+
     @Column(name = "price")
     private long price;
 
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "hotel_id")
-    private Hotel hotel;
+    @Column(name = "hotel_id")
+    private UUID hotel;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "visitor_id")
+    @Column(name = "visitor_id")
     private User visitor;
 
 }

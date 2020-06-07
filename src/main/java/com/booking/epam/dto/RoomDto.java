@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -27,7 +28,7 @@ public class RoomDto implements Serializable {
 
     private String description;
 
-    private Hotel hotel;
+    private UUID hotel;
 
     private User visitor;
 }
