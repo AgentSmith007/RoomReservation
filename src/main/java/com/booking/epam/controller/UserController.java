@@ -43,8 +43,7 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @DeleteMapping
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> deleteUserById(Principal principal, @PathVariable("id") UUID id) {
         UserDto userDto = new UserDto();
         userDto.setUserName("HIP HIP HURAAA NAME!");

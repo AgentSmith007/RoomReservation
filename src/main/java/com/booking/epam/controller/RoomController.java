@@ -7,39 +7,50 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/rooms")
 public class RoomController {
 
-    @GetMapping
-    @RequestMapping(value = "/{id}")
-    public ResponseEntity<?> getRoomById(@PathVariable("id") Long id) {
+    @GetMapping//возвращать румы отеля или все вообще?
+    public ResponseEntity<?> getAllRooms(@PathVariable("id") UUID id) {
         Room room = new Room();
         return new ResponseEntity<>(room, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> getRoomById(@PathVariable("id") UUID id) {
+        Room room = new Room();
+        return new ResponseEntity<>(room, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<?> deleteRoomById(@PathVariable("id") UUID id) {
+        Room room = new Room();
+        return new ResponseEntity<>(room, HttpStatus.OK);
+    }
+
+    //TODO ROLE for admin only
     @PostMapping
-    @RequestMapping(value = "/{id}/reserve")
-    public ResponseEntity<?> reserveRoomById(@PathVariable("id") Long id) {
+    public ResponseEntity<?> createRoom(@PathVariable("id") UUID id) {
         Room room = new Room();
         return new ResponseEntity<>(room, HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<?> createRoom(Principal principal, @PathVariable("id") Long id) {
+    //корректно?
+    @PostMapping(value = "/{id}/reserve")
+    public ResponseEntity<?> reserveRoomById(Principal principal, @PathVariable("id") UUID id) {
         Room room = new Room();
         return new ResponseEntity<>(room, HttpStatus.OK);
     }
 
-    @PostMapping
-    @RequestMapping(value = "/{id}/cancel")
-    public ResponseEntity<?> cancelReserveRoomById(Principal principal, @PathVariable("id") Long id) {
+    //корректно?
+    @PostMapping(value = "/{id}/cancel")
+    public ResponseEntity<?> cancelReserveRoomById(Principal principal, @PathVariable("id") UUID id) {
         Room room = new Room();
         return new ResponseEntity<>(room, HttpStatus.OK);
     }
-
-
 
 
 }

@@ -1,7 +1,6 @@
 package com.booking.epam.controller;
 
 import com.booking.epam.dto.HotelDto;
-import com.booking.epam.dto.UserDto;
 import com.booking.epam.entity.Hotel;
 import com.booking.epam.service.HotelService;
 import io.swagger.annotations.ApiParam;
