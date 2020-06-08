@@ -4,6 +4,7 @@ package com.booking.epam.controller;
 import com.booking.epam.entity.Room;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -32,6 +33,7 @@ public class RoomController {
     }
 
     //TODO ROLE for admin only
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<?> createRoom(@PathVariable("id") UUID id) {
         Room room = new Room();

@@ -8,7 +8,7 @@ CREATE TABLE `user` (
 `user_name` varchar(255) DEFAULT NULL,
 `phone` varchar(100) DEFAULT NULL,
 PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- test.room definition
 
@@ -26,7 +26,7 @@ PRIMARY KEY (`id`),
 KEY `FKdosq3ww4h9m2osim6o0lugng8` (`hotel_id`),
 KEY `FKaqdcu61a2h9xmug3jgkba31e6` (`visitor_id`),
 KEY `FKqiql9p8bwg2b5sod0rmmk7cw7` (`room_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- test.hotel definition
 
@@ -37,4 +37,4 @@ CREATE TABLE `hotel` (
 `email` varchar(100) NOT NULL,
 `phone` varchar(100) DEFAULT NULL,
 PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
