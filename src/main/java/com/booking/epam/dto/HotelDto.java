@@ -13,7 +13,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HotelDto implements Serializable {
+public class HotelDto extends CommonIdDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String title;
@@ -23,6 +23,4 @@ public class HotelDto implements Serializable {
     private String email;
 
     private String description;
-
-    private Set<Room> rooms;
 }

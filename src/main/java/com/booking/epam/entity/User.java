@@ -1,13 +1,18 @@
 package com.booking.epam.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-@Getter
-@Setter
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "user")
 public class User extends BaseEntity {
     @Column(name = "login", nullable = false)
@@ -24,4 +29,13 @@ public class User extends BaseEntity {
 
     @Column(name = "user_name")
     private String userName;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "tl_users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Set<Role> roles = new HashSet<>();
+
+//    @ManyToMany(cascade = CascadeType.MERGE)
+//    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+//    private Set<Role> roles;
+
 }

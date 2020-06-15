@@ -15,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/hotels")
+@RequestMapping("/hotel")
 public class HotelController {
     @Autowired
     private HotelService service;

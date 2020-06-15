@@ -4,14 +4,13 @@ package com.booking.epam.controller;
 import com.booking.epam.entity.Room;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/rooms")
+@RequestMapping("/room")
 public class RoomController {
 
     @GetMapping//возвращать румы отеля или все вообще?
@@ -22,8 +21,7 @@ public class RoomController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> getRoomById(@PathVariable("id") UUID id) {
-        Room room = new Room();
-        return new ResponseEntity<>(room, HttpStatus.OK);
+        return new ResponseEntity<>(roomService.getRoomById(id), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
@@ -33,7 +31,7 @@ public class RoomController {
     }
 
     //TODO ROLE for admin only
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<?> createRoom(@PathVariable("id") UUID id) {
         Room room = new Room();

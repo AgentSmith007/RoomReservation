@@ -1,5 +1,6 @@
 package com.booking.epam.entity;
 
+import com.booking.epam.entity.enums.RoomType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,10 +26,10 @@ public class Room extends BaseEntity {
     private boolean reserved;
 
     @Column(name = "start_reserved_date")
-    private long startReservedDate;
+    private String startReservedDate;
 
     @Column(name = "end_reserved_date")
-    private long endReservedDate;
+    private String endReservedDate;
 
     @Column(name = "price")
     private long price;
@@ -40,6 +41,6 @@ public class Room extends BaseEntity {
     private UUID hotel;
 
     @Column(name = "visitor_id")
-    private User visitor;
+    private UUID visitor;
 
 }
